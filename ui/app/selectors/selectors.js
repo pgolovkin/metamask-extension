@@ -467,3 +467,7 @@ export function getIsSwapsChain(state) {
   const chainId = getCurrentChainId(state);
   return ALLOWED_SWAPS_CHAIN_IDS[chainId];
 }
+
+export function getNextSuggestedNonce(state) {
+  return Number(state.metamask.nextNonce);
+}
