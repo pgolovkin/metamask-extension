@@ -35,6 +35,7 @@ describe('Gas Duck', function () {
       safeLow: null,
     },
     basicEstimateIsLoading: true,
+    isEthGasPriceFetched: false,
   };
 
   const providerState = {
@@ -155,7 +156,7 @@ describe('Gas Duck', function () {
         'should fetch metaswap /gasPrices',
       );
 
-      assert.deepStrictEqual(mockDistpatch.getCall(2).args, [
+      assert.deepStrictEqual(mockDistpatch.getCall(3).args, [
         { type: BASIC_GAS_ESTIMATE_LOADING_FINISHED },
       ]);
     });
@@ -180,7 +181,7 @@ describe('Gas Duck', function () {
       assert.deepStrictEqual(mockDistpatch.getCall(0).args, [
         { type: BASIC_GAS_ESTIMATE_LOADING_STARTED },
       ]);
-      assert.deepStrictEqual(mockDistpatch.getCall(1).args, [
+      assert.deepStrictEqual(mockDistpatch.getCall(2).args, [
         {
           type: SET_BASIC_GAS_ESTIMATE_DATA,
           value: {
@@ -188,7 +189,7 @@ describe('Gas Duck', function () {
           },
         },
       ]);
-      assert.deepStrictEqual(mockDistpatch.getCall(2).args, [
+      assert.deepStrictEqual(mockDistpatch.getCall(3).args, [
         { type: BASIC_GAS_ESTIMATE_LOADING_FINISHED },
       ]);
     });
