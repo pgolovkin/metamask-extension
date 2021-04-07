@@ -225,6 +225,7 @@ function createScriptTasks({ browserPlatforms, livereload }) {
 }
 
 function createNormalBundle({
+  label,
   destFilepath,
   entryFilepath,
   extraEntries = [],
