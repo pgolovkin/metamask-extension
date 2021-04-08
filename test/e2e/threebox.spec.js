@@ -76,18 +76,14 @@ describe('MetaMask', function () {
       });
 
       it('imports a seed phrase', async function () {
-        const [seedTextArea] = await driver.findElements(
+        await driver.fill(
           'input[placeholder="Paste seed phrase from clipboard"]',
+          testSeedPhrase,
         );
-        await seedTextArea.sendKeys(testSeedPhrase);
         await driver.delay(regularDelayMs);
 
-        const [password] = await driver.findElements('#password');
-        await password.sendKeys('correct horse battery staple');
-        const [confirmPassword] = await driver.findElements(
-          '#confirm-password',
-        );
-        confirmPassword.sendKeys('correct horse battery staple');
+        await driver.fill('#password', 'correct horse battery staple');
+        await driver.fill('#confirm-password', 'correct horse battery staple');
 
         await driver.clickElement('.first-time-flow__terms');
 
@@ -197,18 +193,14 @@ describe('MetaMask', function () {
       });
 
       it('imports a seed phrase', async function () {
-        const [seedTextArea] = await driver2.findElements(
+        await driver2.fill(
           'input[placeholder="Paste seed phrase from clipboard"]',
+          testSeedPhrase,
         );
-        await seedTextArea.sendKeys(testSeedPhrase);
         await driver2.delay(regularDelayMs);
 
-        const [password] = await driver2.findElements('#password');
-        await password.sendKeys('correct horse battery staple');
-        const [confirmPassword] = await driver2.findElements(
-          '#confirm-password',
-        );
-        confirmPassword.sendKeys('correct horse battery staple');
+        await driver2.fill('#password', 'correct horse battery staple');
+        await driver2.fill('#confirm-password', 'correct horse battery staple');
 
         await driver2.clickElement('.first-time-flow__terms');
 
